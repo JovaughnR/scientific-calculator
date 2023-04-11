@@ -1,5 +1,6 @@
 // const operations = require("./operation");
 
+// Defining a class for arithmetic expression
 export class ArithmeticExpression {
 	constructor(operations) {
 		this.operations = operations;
@@ -30,6 +31,7 @@ export class ArithmeticExpression {
 		};
 	}
 
+	// method to convert degrees to radians
 	toDeg(number) {
 		let exp = this.stack[this.stack.length - 2];
 		if (
@@ -47,30 +49,41 @@ export class ArithmeticExpression {
 		return number;
 	}
 
+	//method to convert radians to degrees
 	inverse(number) {
+		/**
+		 * @param {Number} number - expected radian
+		 * @returns {Number} number in degrees
+		 */
 		return Number(number) * (180 / Math.PI);
 	}
 
+	// method to check precedence of operators on the stack
 	_priorityCheck(stack, op) {
 		return this.operands[stack[stack.length - 1]] >= this.operands[op];
 	}
 
+	// method to get numbers from input string
 	_getNum(input, inc) {
 		if (input[inc] === "." || input[inc] === "0");
 		else if (!Number(input[inc])) return "";
 		return input[inc] + this._getNum(input, inc + 1);
 	}
 
+	// Method to get words from input string
 	_getWord(input, inc) {
 		if (input[inc] == "-" || input[inc] == "1");
 		else if (!/[a-z]/.test(input[inc])) return "";
 		return input[inc] + this._getWord(input, inc + 1);
 	}
 
+	// Method to convert an infix expression to postfix
 	toPostFix(input, degreeMode = false) {
 		/**
-		 *@param {String} input
+		 *@param {String} input - Input infix expression
 		 */
+
+		//Wrapping the input string in parenthesis for easier parsing
 		input = "(" + input + ")";
 
 		for (let i = 0; i < input.length; i++) {
@@ -99,6 +112,7 @@ export class ArithmeticExpression {
 		}
 	}
 
+	// method to evaluate a postfix expression
 	evaluate(input, degreeMode = false) {
 		/**
 		 * Evaluates a postfix expression.
@@ -124,8 +138,10 @@ export class ArithmeticExpression {
 	}
 }
 
-// const ex = new ArithmeticExpression(operations);
-// console.log(ex.evaluate("sin-1(0.5)", true));
-// module.exports = ArithmeticExpression;
+/*Locale Testing code
 
-// console.log(Math.exp(2));
+const ex = new ArithmeticExpression(operations);
+console.log(ex.evaluate("sin-1(0.5)", true));
+module.exports = ArithmeticExpression;
+
+*/

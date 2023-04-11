@@ -12,20 +12,14 @@ let degreeMode = false;
 
 /*Adds the character pressed on the screen from the user*/
 function characterPress(char) {
-	if (screen.value === "0") {
-		screen.value = char;
-	} else {
-		screen.value += char;
-	}
+	if (screen.value === "0") screen.value = char;
+	else screen.value += char;
 }
 
 function clear() {
 	/*clear input character by one by one*/
-	if (screen.value.length <= 1) {
-		screen.value = "0";
-	} else {
-		screen.value = screen.value.slice(0, -1);
-	}
+	if (screen.value.length <= 1) screen.value = "0";
+	else screen.value = screen.value.slice(0, -1);
 }
 
 function allClear() {
@@ -64,6 +58,7 @@ function autoCalculate() {
 		mode.style.display = "none";
 }
 
+/*Switch the calculator mode between radians and degrees*/
 function changeMode() {
 	const modeButton = document.querySelector(".mode-btn");
 	if (modeButton.innerHTML == "DEG") {
@@ -132,6 +127,3 @@ calculator.addEventListener("click", autoCalculate);
 trigButtons.forEach((button) => {
 	button.addEventListener("click", () => (mode.style.display = "block"));
 });
-
-let string = 1200000;
-string.toLocaleString();
