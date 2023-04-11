@@ -10,6 +10,7 @@ body {
 }
 
 .calculator {
+	position: relative;
 	background-color: rgba(25, 25, 25, 0.8);
 	margin: 50% auto;
 	display: flex;
@@ -18,29 +19,65 @@ body {
 	align-items: center;
 	margin-top: 100px;
 	border: 1px solid black;
-	width: 280px;
+	width: 300px;
 	border-radius: 8px;
 	backdrop-filter: blur(10px);
 	-webkit-backdrop-filter: blur(10px);
+	padding: 10px;
+	box-shadow: 1px 2px 3px 2px rgba(0, 0, 0, 0.5);
+}
+
+.topbar {
+	display: grid;
+	grid-template-columns: repeat(6, 40px);
+	gap: 5px;
+	margin: 9px;
+}
+
+.topbar > .top {
+	color: white;
+	background-color: transparent;
+	border: none;
+	cursor: pointer;
+}
+
+.button.top {
+	font-size: 13px;
+	box-shadow: none;
+	color: brown;
 }
 
 .screen {
+	border: 0px solid black;
+	outline: none;
 	display: grid;
 	grid-template-rows: repeat(2, 90px);
 	gap: 5px;
 	border-radius: 4px;
 	margin-top: 5px;
 	background-color: transparent;
-	backdrop-filter: blur(5px);
-	-webkit-backdrop-filter: blur(5px);
+	width: 100%;
+	box-shadow: 1px 2px 3px 2px rgba(0, 0, 0, 0.5);
+	transition: border-color 0.3s ease-in-out, border-width 0.3s ease-in-out;
+}
+.screen:hover {
+	border-color: rgb(255, 255, 255);
+	border-width: 0.5px;
+}
+
+.mode {
+	position: absolute;
+	margin: 8px;
+	color: #fff;
+	font-size: 12px;
+	font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+		"Lucida Sans", Arial, sans-serif;
 }
 
 .output {
 	font-size: 20px;
 	padding-right: 10px;
 	background-color: transparent;
-	backdrop-filter: blur(10px);
-	-webkit-backdrop-filter: blur(10px);
 	text-align: center;
 	font-size: 15px;
 	color: white;
@@ -49,34 +86,60 @@ body {
 }
 
 .answer-screen {
-	text-align: right;
-	font-size: 18px;
+	text-align: center;
+	font-size: 20px;
 	font-weight: 900;
 	color: white;
 	background-color: transparent;
+	border: none;
 }
 
-.buttons {
+.scientific-notations {
+	display: grid;
+	grid-template-rows: repeat(2, 40px);
+	grid-template-columns: repeat(5, 50px);
+	gap: 4px;
+	margin: 3px;
+}
+
+.button.scientific {
+	background-color: rgba(25, 25, 25, 0.025);
+	color: rgb(71, 203, 203);
+}
+
+.buttons-area {
 	display: grid;
 	grid-template-columns: repeat(4, 60px);
-	grid-template-rows: repeat(6, 60px);
+	grid-template-rows: repeat(6, 50px);
 	gap: 7px;
-	margin: 5px;
+	margin: 2px;
 }
 
 .button {
-	font-size: 20px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 16px;
 	border-radius: 50%;
 	border: 0.9px solid #332;
 	color: #fff;
 	background-color: rgba(25, 25, 25, 0.2);
-
 	cursor: pointer;
 	font-weight: 700;
-	z-index: 2;
+	box-shadow: 0px 3px 0px rgba(0, 0, 0, 0.5);
+}
+
+.operator {
+	color: coral;
 }
 
 .button:hover {
+	background-color: #337;
+}
+.button.scientific.mode-btn {
+	background-color: transparent;
+	color: rgb(246, 243, 243);
+}
+
+.button.scientific.mode-btn:hover {
 	background-color: #337;
 }
 

@@ -6,50 +6,67 @@
 		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
 		<title>Calculator</title>
 		<link rel="stylesheet" href="style.css" />
+		<script defer type="module" src="script.js"></script>
 	</head>
 	<body>
 		<div class="calculator">
 			<div class="screen">
-				<input type="text" class="output" value="0" />
-				<input type="text" class="answer-screen" value="" readonly />
+				<div class="mode" style="display: none">RAD</div>
+				<input type="text" class="output" value="0" readonly />
+				<input type="text" class="answer-screen" value="0" readonly />
+			</div>
+			<div class="topbar">
+				<button class="top">MC</button>
+				<button class="top">MR</button>
+				<button class="top">M+</button>
+				<button class="top">M-</button>
+				<button class="top">MS</button>
+				<button value="AC" class="top button" title="clear input">AC</button>
 			</div>
 			<div class="scientific-notations">
-				<button value="#" class="scientific">INV</button>
-				<button value="log(" class="scientific">log</button>
-				<button value="ln(" class="scientific">ln</button>
-				<button value="e" class="scientific">e</button>
-				<button value="`" class="scientific">RAD</button>
-				<button value="sin(" class="scientific">sin</button>
-				<button value="cos(" class="scientific">cos</button>
-				<button value="tan(" class="scientific">tan</button>
+				<button value="M" class="button scientific mode-btn">DEG</button>
+				<button value="sin(" class="button scientific trig">sin</button>
+				<button value="cos(" class="button scientific trig">cos</button>
+				<button value="tan(" class="button scientific trig">tan</button>
+				<button value="log(" class="button scientific">log</button>
+				<button value="ln(" class="button scientific">ln</button>
+				<button value="cos-1(" class="button scientific trig">
+					cos<sup>-1</sup>
+				</button>
+				<button value="tan-1(" class="button scientific trig">
+					tan<sup>-1</sup>
+				</button>
+				<button value="sin-1(" class="button scientific trig">
+					sin<sup>-1</sup>
+				</button>
+				<button value="exp(" class="button scientific">e<sup>x</sup></button>
 			</div>
-			<div class="buttons">
-				<button value="√" class="button" id="radic">&radic;</button>
-				<button value="!" class="button" id="factorial">!</button>
-				<button value="e" class="button" id="eulor">e</button>
-				<button value="~" class="button" id="backspace">&#x232b;</button>
+			<div class="buttons-area">
+				<button value="√" class="button operator" id="radic">&radic;</button>
+				<button value="!" class="button operator" id="factorial">!</button>
+				<button value="E" class="button operator" id="eulor">𝑒</button>
+				<button value="⌫" class="button" id="backspace">&#x232b;</button>
 				<button value="()" class="button" id="clear">&#40; &#41;</button>
 				<button value="^" class="button" id="square">^</button>
-				<button value="%" class="button" id="percent">&#37;</button>
-				<button value="/" class="button" id="divide">&#247;</button>
+				<button value="%" class="button operator" id="percent">&#37;</button>
+				<button value="÷" class="button operator" id="divide">&#247;</button>
 				<button value="7" class="button" id="7">7</button>
 				<button value="8" class="button" id="8">8</button>
 				<button value="9" class="button" id="9">9</button>
-				<button value="*" class="button" id="multiply">&#215;</button>
+				<button value="×" class="button operator" id="multiply">&#215;</button>
 				<button value="4" class="button" id="4">4</button>
 				<button value="5" class="button" id="5">5</button>
 				<button value="6" class="button" id="6">6</button>
-				<button value="-" class="button" id="subtract">&#8722;</button>
+				<button value="−" class="button operator" id="subtract">&#8722;</button>
 				<button value="1" class="button" id="1">1</button>
 				<button value="2" class="button" id="2">2</button>
 				<button value="3" class="button" id="3">3</button>
-				<button value="+" class="button" id="add">&#43;</button>
+				<button value="+" class="button operator" id="add">&#43;</button>
 				<button value="0" class="button" id="0">0</button>
 				<button value="." class="button" id="decimal">.</button>
-				<button value="𝜋" class="button" id="pi">&#960;</button>
+				<button value="π" class="button operator" id="pi">&#960;</button>
 				<button value="=" class="button" id="equals">&#61;</button>
 			</div>
 		</div>
-		<script type="module" src="script.js"></script>
 	</body>
 </html>
